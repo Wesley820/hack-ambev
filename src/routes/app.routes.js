@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { AntDesign, Octicons, Feather } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Dashboard from '../pages/Dashboard';
+import ProductStackScreen from './product.routes';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -45,17 +45,17 @@ export default function AppRoutes() {
             const { lib: Icon, name } = icons[route.name];
             return <Icon name={name} size={size} color={color} />;
           },
-          tabBarLabel: icons[route.name].label,
+          tabBarLabel: icons[route.name]?.label,
         })}
         tabBarOptions={{
           activeTintColor: '#f2b705',
         }}
       >
-        <Screen name="Home" component={Dashboard} />
-        <Screen name="Explore" component={() => null} />
-        <Screen name="Add" component={() => null} />
-        <Screen name="Awards" component={() => null} />
-        <Screen name="Ranking" component={() => null} />
+        <Screen name="Home" component={ProductStackScreen} />
+        <Screen name="Explore" component={ProductStackScreen} />
+        <Screen name="Add" component={ProductStackScreen} />
+        <Screen name="Awards" component={ProductStackScreen} />
+        <Screen name="Ranking" component={ProductStackScreen} />
       </Navigator>
     </>
   );

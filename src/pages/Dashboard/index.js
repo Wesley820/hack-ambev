@@ -47,13 +47,20 @@ const dataProducts = [
   },
 ];
 
-export default function Dashboard() {
+export default function Dashboard({ navigation }) {
+  function handleNavigateToProduct() {
+    navigation.navigate('Product');
+  }
+
   return (
     <Container>
       <Content>
         <Header />
         {dataProducts.map((products) => (
-          <ListProducts list={products} />
+          <ListProducts
+            list={products}
+            onSelectItem={handleNavigateToProduct}
+          />
         ))}
       </Content>
     </Container>
